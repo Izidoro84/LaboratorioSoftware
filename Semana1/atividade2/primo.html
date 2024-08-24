@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Número Primo</title>
+    <script>
+        function verificarPrimo() {
+            // Solicita ao usuário um número
+            let numero = prompt("Digite um número inteiro positivo:");
+
+            // Converte o valor digitado para um número
+            numero = Number(numero);
+
+            // Função para verificar se um número é primo
+            function ehPrimo(n) {
+                if (n <= 1) return false; // Números menores ou iguais a 1 não são primos
+                if (n === 2) return true;  // 2 é o único número primo par
+                if (n % 2 === 0) return false; // Números pares maiores que 2 não são primos
+                for (let i = 3; i <= Math.sqrt(n); i += 2) {
+                    if (n % i === 0) return false; // Se n é divisível por i, não é primo
+                }
+                return true;
+            }
+
+            // Verifica se o valor é um número e se é positivo
+            if (Number.isInteger(numero) && numero > 0) {
+                // Verifica se o número é primo e exibe uma mensagem adequada
+                if (ehPrimo(numero)) {
+                    alert("O número " + numero + " é primo.");
+                } else {
+                    alert("O número " + numero + " não é primo.");
+                }
+            } else {
+                alert("Por favor, digite um número inteiro positivo válido.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Número Primo</h1>
+    <button onclick="verificarPrimo()">Verificar</button>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>

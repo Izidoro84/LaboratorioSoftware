@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Par ou Ímpar</title>
+    <script>
+        function verificarParOuImpar() {
+            // Solicita ao usuário um número
+            let numero = prompt("Digite um número inteiro positivo:");
+
+            // Converte o valor digitado para um número
+            numero = Number(numero);
+
+            // Verifica se o valor é um número e se é positivo
+            if (Number.isInteger(numero) && numero > 0) {
+                // Verifica se o número é par ou ímpar
+                if (numero % 2 === 0) {
+                    alert("O número " + numero + " é par.");
+                } else {
+                    alert("O número " + numero + " é ímpar.");
+                }
+            } else {
+                alert("Por favor, digite um número inteiro positivo válido.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Par ou Ímpar</h1>
+    <button onclick="verificarParOuImpar()">Verificar</button>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>
