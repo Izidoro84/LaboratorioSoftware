@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function verificarPalindromo() {
+            // Obtém o texto do campo de entrada
+            var texto = document.getElementById("texto").value;
+
+            // Remove caracteres não alfabéticos e converte para minúsculas
+            var textoLimpo = texto.replace(/[^a-zA-Z]/g, '').toLowerCase();
+            
+            // Verifica se o texto é um palíndromo
+            var textoInvertido = textoLimpo.split('').reverse().join('');
+            if (textoLimpo === textoInvertido && textoLimpo.length > 0) {
+                alert('O texto é um palíndromo!');
+            } else {
+                alert('O texto não é um palíndromo ou está vazio.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Palíndromo</h1>
+        <input type="text" id="texto" placeholder="Digite uma palavra ou frase">
+        <button onclick="verificarPalindromo()">Verificar</button>
+        <button class="back-button" onclick="window.history.back()">Voltar</button>
+    </div>
+</body>
+</html>
