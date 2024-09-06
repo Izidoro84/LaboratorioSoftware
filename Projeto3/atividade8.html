@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Valores à Lista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px;
+        }
+        ol {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar Valores à Lista</h1>
+
+    <form id="form">
+        <input type="text" id="inputValue" placeholder="Digite um valor" required>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista Ordenada</h2>
+    <ol id="listaOrdenada">
+        <!-- Lista será atualizada aqui -->
+    </ol>
+
+    <script>
+        // Array para armazenar os valores
+        let valores = [];
+
+        // Função para atualizar a lista ordenada no HTML
+        function atualizarLista() {
+            // Ordena o array em ordem alfabética
+            valores.sort();
+
+            // Obtém o elemento OL
+            const listaOrdenada = document.getElementById('listaOrdenada');
+            listaOrdenada.innerHTML = ''; // Limpa a lista existente
+
+            // Adiciona cada valor ao elemento OL como um item de lista
+            valores.forEach(valor => {
+                const li = document.createElement('li');
+                li.textContent = valor;
+                listaOrdenada.appendChild(li);
+            });
+        }
+
+        // Evento de envio do formulário
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário e recarregamento da página
+
+            // Obtém o valor do campo de texto
+            const inputValue = document.getElementById('inputValue').value.trim();
+            if (inputValue) {
+                // Adiciona o valor ao array
+                valores.push(inputValue);
+
+                // Atualiza a lista ordenada
+                atualizarLista();
+
+                // Limpa o campo de texto
+                document.getElementById('inputValue').value = '';
+            }
+        });
+    </script>
+     <div class="container">
+        <div id="clock"></div>
+        <button class="back-button" onclick="window.history.back()">Voltar</button>
+    </div>
+</body>
+</html>
